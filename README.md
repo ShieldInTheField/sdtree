@@ -21,16 +21,16 @@ curl -LO https://raw.githubusercontent.com/ShieldInTheField/sdtree/master/sdtree
 2. **Source it in your shell’s config file**
 
 ```bash
-echo 'source ~/path/to/sdtree' >> ~/path/to/shell_config_file 
+echo 'source ~/path/to/sdtree.sh' >> ~/path/to/shell_config_file 
 source ~/path/to/shell_config_file
 ```
 
-> Replace the first `~/path/to` with the actual location where you saved `sdtree`.
+> Replace the first `~/path/to` with the actual location where you saved `sdtree.sh`.
 > and the second `~/path/to` with the actual location of your actual shell config file `shell_config_file` (e.g., `.zshrc` or `.bashrc`).
 
 For Zsh:
 ```bash
-echo 'source ~/path/to/sdtree' >> ~/.zshrc
+echo 'source ~/path/to/sdtree.sh' >> ~/.zshrc
 source ~/.zshrc
 ```
 
