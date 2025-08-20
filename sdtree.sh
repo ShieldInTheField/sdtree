@@ -1,7 +1,5 @@
-# sdtree - Simple directory tree viewer using find/sed
-# Version: 1.0.1
-# Author: Soroush Ataee <ataeesoroush.dev@gmail.com>
-# License: MIT
+# sdtree v1.0.1 – Minimal directory tree viewer using find and sed
+# MIT License – © Soroush Ataee <ataeesoroush.dev@gmail.com>
 
 sdtree() {
   local dir="."
