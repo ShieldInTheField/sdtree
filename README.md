@@ -59,18 +59,26 @@ Shells like `dash`, `sh`, or `busybox sh` that **do not support `local` or `[[ .
 ## Usage
 
 ```bash
-sdtree [OPTIONS]
+sdtree [DIR] [OPTIONS]
 ```
 
 ### Options
 
-| Flag              | Description                                   | Default       |
-|-------------------|-----------------------------------------------|---------------|
-| `-d`, `--dir`     | Directory to scan                             | `.`           |
-| `-l`, `--level`   | Depth to display                              | `3`           |
-| `-a`, `--all`     | Show hidden files (`true` / `false`)          | `false`       |
-| `-v`, `--version` | Show version number                           |               |
-| `-h`, `--help`    | Show usage help                               |               |
+| Flag              | Description                                               | Default       |
+|-------------------|-----------------------------------------------------------|---------------|
+| `DIR`             | Optional positional directory to scan                     | `.`           |
+| `-d`, `--dir`     | Directory to scan (same as positional `DIR`)              | `.`           |
+| `--dir=DIR`       | Directory to scan                                         | `.`           |
+| `-l`, `--level`   | Depth to display                                          | `3`           |
+| `--level=N`       | Depth to display                                          | `3`           |
+| `-a`, `--all`     | Show hidden files                                         | `false`       |
+| `--no-all`        | Hide hidden files                                         | `false`       |
+| `-v`, `--version` | Show version number                                       |               |
+| `-h`, `--help`    | Show usage help                                           |               |
+
+Output is sorted by:
+1. type (`directory` first, then `file`)
+2. name (case-insensitive)
 
 ---
 
@@ -78,8 +86,11 @@ sdtree [OPTIONS]
 
 ```bash
 sdtree                        # Current directory, depth 3, no hidden files
+sdtree ~/Projects             # Scan ~/Projects (positional DIR)
 sdtree -d ~/Projects          # Scan ~/Projects
-sdtree -l 2 -a true           # Show hidden files, depth 2
+sdtree --dir=~/Projects       # Scan ~/Projects (equals form)
+sdtree -l 2 -a                # Show hidden files, depth 2
+sdtree --level=2 --no-all     # Hide hidden files, depth 2
 sdtree --version              # Show version number
 ```
 
