@@ -94,11 +94,37 @@ sdtree --level=2 --no-all     # Hide hidden files, depth 2
 sdtree --version              # Show version number
 ```
 
+Sample output style (v1.2.0):
+
+```text
+.
+|____loop-1
+     |____loop-2
+     |    |____loop-3
+     |____file-2-1
+|____file-1-1
+```
+
+When scanning an explicit directory, the root is printed as its plain name:
+
+```text
+test
+|____loop-1
+|    |____loop-2
+|____file-1-1
+```
+
 ---
 
 ## Why dashed lines?
 
-The current implementation uses a flat representation of directory depth based on slashes in path names. Using dashed lines like `|____` avoids the misleading structure that solid Unicode lines (`├──`, `└──`) would imply without true tree logic. This keeps output **visually consistent and structurally honest**.
+`sdtree` uses ASCII dashed connectors (`|____`) for broad shell compatibility and readability.  
+As of **v1.2.0**, connector columns are sibling-aware:
+- Root (`.` or `DIR`) is printed without `|____`
+- Vertical `|` columns are only kept where ancestor siblings still exist
+- Last branches stop continuing unnecessary parent lines
+
+This keeps the output visually clean while preserving clear hierarchy without Unicode tree glyph dependencies.
 
 ---
 
